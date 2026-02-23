@@ -73,10 +73,41 @@ onebot:
   url: "ws://127.0.0.1:3001"
   access_token: "your_token_here"
 
-bot:
-  qq: 123456789 # 你的机器人QQ号
-  admins:
-    - 987654321 # 管理员QQ号
+permission:
+  admins: [1984261169]
+  enable_group_permission: true
+```
+
+### NapCat HTTP 上报配置与网页管理后台
+
+- NapCat 需要将事件推送到本项目的 HTTP 上报地址，确保 NapCat 的 OneBot 配置中 `httpClients` 包含指向本机的地址。例如：
+
+```json
+{
+  "network": {
+    "httpClients": [
+      {
+        "enable": true,
+        "url": "http://127.0.0.1:5700",
+        "timeout": 5000,
+        "secret": ""
+      }
+    ]
+  }
+}
+```
+
+- 在本项目中，相关配置位于 [config/config.yaml](config/config.yaml)：请确认 `onebot.http_post_host`、`onebot.http_post_port` 与 NapCat 中的 `httpClients.url` 对应端口一致，并且 `http_post_secret` 与 NapCat 中的 `secret` 相同（若使用签名验证）。
+
+- Web 管理后台：本项目提供一个简易的网页管理后台，默认通过 `web` 配置项控制（位于 [config/config.yaml](config/config.yaml)）。确保 `web.enabled` 为 `true`，并根据需要修改 `host`、`port`、`username` 与 `password`：
+
+```yaml
+web:
+  enabled: true
+  host: "127.0.0.1"
+  port: 8080
+  username: "admin"
+  password: "admin123"
 ```
 
 ### 4. 启动机器人
