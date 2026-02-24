@@ -74,7 +74,7 @@ onebot:
   access_token: "your_token_here"
 
 permission:
-  admins: [1984261169]
+  admins: []
   enable_group_permission: true
 ```
 
