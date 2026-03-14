@@ -1,4 +1,4 @@
-import{api,sanitizeError}from'./api.js';
+import{api,sanitizeError,getCsrfToken}from'./api.js';
 
 const fetchStatus=async(token)=>{
 try{

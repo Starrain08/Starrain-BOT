@@ -103,3 +103,19 @@ web:
   secret: ""
   username: "admin"
   password: "admin123"
+  
+  # CORS (跨域资源共享) 配置
+  # 默认仅允许 localhost 和 127.0.0.1 访问
+  # 如需允许其他域名，请在下方添加具体的域名
+  cors_origins:
+    - "http://localhost:8080"
+    - "http://127.0.0.1:8080"
+    # 示例：允许特定域名访问（请根据实际情况修改）
+    # - "http://your-domain.com"
+    # - "https://your-secure-domain.com"
+  
+  # CORS 凭证设置，允许携带 cookie
+  cors_allow_credentials: true
+  
+  # CORS 预检请求缓存时间（秒）
+  cors_max_age: 600
